@@ -7,9 +7,9 @@ class AddressBook(UserDict):
 
 
 class Record:
-    def __init__(self, name, phone):
+    def __init__(self, name, phones):
         self.name = name
-        self.phone = phone
+        self.phones = [phones]
 
     def add_phone(self):
         pass
@@ -20,24 +20,31 @@ class Record:
     def change_phone(self):
         pass
 
+
 class Field:
     pass
 
-class Name:
-    pass
+
+class Name(Record):
+    value = 'Bill'
+
+    def __init__(self, name):
+        self.name = name
+
 
 class Phone(Record):
-    pass
+    def __init__(self, phone):
+        self.phone = phone
 
-if  __name__ == "main":
-    name = Name('Bill')
-    phone = Phone('1234567890')
-    rec = Record(name, phone)
-    ab = AddressBook()
-    ab.add_record(rec)
-    assert isinstance(ab['Bill'], Record)
-    assert isinstance(ab['Bill'].name, Name)
-    assert isinstance(ab['Bill'].phones, list)
-    assert isinstance(ab['Bill'].phones[0], Phone)
-    assert ab['Bill'].phones[0].value == '1234567890'
-    print('All Ok)')
+
+name = Name('Bill')
+phone = Phone('1234567890')
+rec = Record(name, phone)
+ab = AddressBook()
+ab.add_record(rec)
+assert isinstance(ab['Bill'], Record)
+assert isinstance(ab['Bill'].name, Name)
+assert isinstance(ab['Bill'].phones, list)
+assert isinstance(ab['Bill'].phones[0], Phone)
+assert ab['Bill'].phones[0].value == '1234567890'
+print('All Ok)')
