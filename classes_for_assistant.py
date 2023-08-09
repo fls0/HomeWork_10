@@ -25,16 +25,21 @@ class Field:
     pass
 
 
-class Name(Record):
-    value = 'Bill'
+class Name:
+    value = ''
 
     def __init__(self, name):
         self.name = name
+        self.value = name
 
 
-class Phone(Record):
+class Phone:
+    value = ''
+
     def __init__(self, phone):
-        self.phone = phone
+        self.phones = phone
+        self.value = phone
+
 
 
 name = Name('Bill')
