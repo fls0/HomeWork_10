@@ -7,9 +7,11 @@ class AddressBook(UserDict):
 
 
 class Record:
-    def __init__(self, name, phones):
+    def __init__(self, name, phone=None):
         self.name = name
-        self.phones = [phones]
+        self.phones = []
+        if phone:
+            self.phones.append(phone)
 
     def add_phone(self):
         pass
@@ -22,23 +24,18 @@ class Record:
 
 
 class Field:
-    pass
+    def __init__(self, some_value):
+        self.value = some_value
 
 
-class Name:
+class Name(Field):
     value = ''
 
-    def __init__(self, name):
-        self.name = name
-        self.value = name
 
 
-class Phone:
+class Phone(Field):
     value = ''
 
-    def __init__(self, phone):
-        self.phones = phone
-        self.value = phone
 
 
 if __name__ == "__main__":
