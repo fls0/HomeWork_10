@@ -29,12 +29,12 @@ class Field:
 
 
 class Name(Field):
-    value = ''
+    pass
 
 
 
 class Phone(Field):
-    value = ''
+    pass
 
 
 
